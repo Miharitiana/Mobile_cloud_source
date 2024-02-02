@@ -1,0 +1,66 @@
+.container{
+    /* background: var(--bs-white); */
+    margin-left: auto;
+    margin-right: auto;
+    width: 403px;
+    height: 1060px;
+    margin-top: 75px;
+    background-color: white;
+}
+
+.contain-select1{
+    margin-left: 56px;
+    margin-top: 0px;
+}
+.contain-select2{
+    margin-left: 55px;
+    margin-top: -40px;
+}
+
+.select {
+    width: 225px;
+    height: 40px;
+    border-radius: 10px;
+    border-style: inset;
+    border-top-width: 2px;
+    margin-top: 50px;
+}
+
+.contain-input{
+    margin-left: 55px;
+    margin-top: 30px;
+}
+ .input{
+    width: 225PX;
+    height: 40px;
+    border-radius: 10px;border-style: outset;
+ }
+
+ .btn{
+    background: linear-gradient(118deg, black 0%, var(--bs-blue) 0%, var(--bs-info) 0%, rgb(13,152,247) 0%, var(--bs-teal) 100%, var(--bs-info) 100%), var(--bs-blue);
+    width: 200.5px;
+    height: 43px;
+    border-radius: 0px;
+    border-color: rgba(255,255,255,0);
+    border-top-color: rgba(248,249,250,0.14);
+    border-right-color: rgba(255,255,255,0.06);
+    border-bottom-color: rgba(255,255,255,0.08);
+    border-left-color: rgba(255,255,255,0.06);
+    margin-left: 0px;
+ }
+
+ .congtain_heading{
+    margin-left: 118px;
+    margin-top: 115px;
+    padding-top: 40px;
+}
+ 
+ 
+ .heading{
+    
+  font-family: 'Alike Angular', serif;
+  font-size: 32.6px;
+
+ }
+
+

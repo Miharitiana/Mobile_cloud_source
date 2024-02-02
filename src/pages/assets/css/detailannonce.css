@@ -1,0 +1,37 @@
+/* Modelevoiture.css */
+
+.img{
+  margin-left: 30px;
+}
+
+.scrollable-image {
+    overflow-x: scroll; /* Ajoute une barre de défilement horizontale */
+    width: 100%; /* Assure que la largeur de la div est de 100% de la largeur de son conteneur */
+    white-space: nowrap; /* Évite le saut de ligne pour les images plus larges que le conteneur */
+
+  }
+  
+  .scrollable-image img {
+    width: auto; /* Assure que l'image prend sa taille d'origine */
+    height: 100%; /* Assure que l'image prend toute la hauteur de la div */
+  }
+
+  .contain{
+    
+      margin-left: 55px;
+      margin-top: 20px;
+  
+  }
+
+  .textarea-style{
+    
+    border-radius: 5px;
+    overflow: auto;
+    height: auto;
+    font: inherit;
+    color: inherit;
+    width: 218px;
+    height: 80px;
+    
+  }
+  
