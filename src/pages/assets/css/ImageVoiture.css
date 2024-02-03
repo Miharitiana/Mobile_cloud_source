@@ -17,7 +17,7 @@
 }
 .contain-button{
     margin-top: 20px;
-    margin-left: 90px;
+    margin-left: 130px;
 }
 
 .contain-img{
@@ -68,6 +68,6 @@
     .container2{
         margin-top: 10px;
         display: inline-grid;
-        margin-left: -35PX;
+        margin-left: -14PX;
     }
 }
