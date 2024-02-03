@@ -45,8 +45,8 @@ const ContainModele: React.FC = () => {
         <div className='contain_annonce' key={item.id} >
             <div className='detail_voiture'>
             <div className='col'>
-            <a href="/detailannonce"> <img className='img_style' src={item.path_img} style={{}}>
-             </img></a>
+              <img className='img_style' src={item.path_img} style={{}}>
+              </img>
             </div>
             
             <div className='col'>
@@ -61,7 +61,7 @@ const ContainModele: React.FC = () => {
             <div className='col'><label className='col-form-label'>Prix : {item.prix}</label>  </div>
             <div>
             <div className='col'><button className='btn' type="button">Vendu</button></div>
-            <div className='col'><button className='btn' type="button" >  Etat </button></div>
+            <div className='col'><button className='btn' type="button" >Etat</button></div>
            
         </div>
         </div>

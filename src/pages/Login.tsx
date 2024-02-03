@@ -2,9 +2,8 @@ import { IonContent,IonPage } from '@ionic/react';
 import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/styles.css';
 import './assets/css/Login.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-
+// import { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   return (
@@ -18,80 +17,56 @@ const Login: React.FC = () => {
 };
 
 const ContainLogin: React.FC = () => {
-  const [userData, setUserData] = useState<any>(null);
-  const [login, setLogin] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  // const [login, setLogin] = useState('');
+  // const [motDePasse, setMotDePasse] = useState('');
+  // const navigate = useNavigate();
 
-  useEffect(() => {
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
 
-    const config = {
-      headers: {
-        // 'Authorization': 'Bearer your_token', // Remplacez 'your_token' par votre jeton d'authentification
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({ login, password }),
-    };
-    // Effectue une requête GET vers le web service lorsque le composant est monté
-    axios.get('https://jsonplaceholder.typicode.com/users/1')
-      .then(response => {
+    
+  //   navigate('/Accueil', { state: { type: 1 } });
+  // };
 
-        // Met à jour le state avec les données reçues du web service
-        setUserData(response.data);
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('Erreur lors de la requête GET', error);
-      });
-  }, []); // Le tableau vide signifie que cette fonction s'exécutera une seule fois après le montage du composant
 
-  const handleSignIn = () => {
+    return (
+      <body className='bodyy'>
+         {/* <form onSubmit={handleLogin}> */}
+         <div className='contain_login' style={{}}>
+          
+              <div className='contain-login' style={{}} >
+                 <h1 className='h1' style={{}}>Login</h1>
+              </div>
+              <div className='contain2-login' style={{}}>
+                <input className='input-style' type="text" style={{}} placeholder="your mail"
+                // value={login}
+                // onChange={(e) => setLogin(e.target.value)}
+                >
 
-   
-    // Utilise les valeurs de login et password pour effectuer une action (par exemple, connexion)
-    console.log('Login:', login);
-    console.log('Password:', password);
-    // Ici, tu pourrais faire une autre requête pour valider le login et le mot de passe
+                </input>
 
-      // Stocke les valeurs dans le localStorage
-      localStorage.setItem('userLogin', login);
-      localStorage.setItem('userPassword', password);
-  };
-
-  return (
-    <body className='bodyy'>
-      <div className='contain_login'>
-        {userData && (
-          <div>
-            <div className='contain-login'>
-              <h1 className='h1'>Login</h1>
-            </div>
-            <div className='contain2-login'>
-              <input
-                className='input-style'
-                type="text"
-                placeholder="your mail"
-                onChange={(e) => setLogin(e.target.value)}
-              />
-            </div>
-            <div className='contain2-login'>
-              <input
-                className='input-style'
-                type="text"
-                placeholder="your password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div className="contain2-login">
-              <button className='btn' type="submit" onClick={handleSignIn}> <a href="/accueil">Sign in</a></button>
-            </div>
-            <div className="contain2-login">
-              <a href="/inscription">Sign up</a>
-            </div>
+              </div>
+              <div className='contain2-login' style={{}}>
+            <input className='input-style' type="text" style={{}} placeholder="your password"
+                    //  value={motDePasse}
+                    //  onChange={(e) => setMotDePasse(e.target.value)}
+                     ></input>
           </div>
-        )}
-      </div>
-    </body>
-  );
-};
+                <div className="contain2-login" style={{}}>
+
+                      <button   className='btn' type="submit" style={{}}> <a href="/accueil">Sign in</a> </button>
+
+                </div>
+                <div className="contain2-login" style={{}}>
+                <a href="/inscription">Sign up</a>
+                </div>
+            
+         </div>
+         {/* </form> */}
+      </body>
+     
+   
+    );
+  };
 
 export default Login;

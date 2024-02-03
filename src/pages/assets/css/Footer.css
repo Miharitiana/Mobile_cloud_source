@@ -11,9 +11,9 @@
     font-family:Lato, sans-serif;
 }
 
-@media screen and (min-width:120px ) and (max-width:1000px) {
+@media screen and (min-width:120px ) and (max-width:500px) {
     .contain-footer{ 
-        margin-top: 120%;
-        HEIGHT: 410px;
+        margin-top: 40%;
+        HEIGHT: 623px;
     }
 }
