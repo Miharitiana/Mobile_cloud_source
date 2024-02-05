@@ -3,6 +3,7 @@ import { useState } from 'react';
 import './assets/bootstrap/css/bootstrap.min.css';
 // import './assets/css/styles.css';
 import './assets/css/Inscription.css';
+import { useHistory } from 'react-router-dom';
 
 const Inscription: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const ContainInscription: React.FC = () => {
   const [method, setMethod] = useState<string>('POST');
   const [headers, setHeaders] = useState<{ [key: string]: string }>({"content-type" : "application/json"});
   //const [body, setBody] = useState<string>(' {"login" : ${login}  "motDePasse" : ${motDePasse}}');
+  const history = useHistory();
 
   const [nom, setNom] = useState<string>('');
   const [prenom, setPrenom] = useState<string>('');
@@ -38,23 +40,28 @@ const ContainInscription: React.FC = () => {
           'content-Type': 'application/json',
         },
         body: JSON.stringify({nom , prenom, login, motDePasse }),
+        
       });
 
       const data = await response.json();
 
       if (data.information == 200) {
+
         console.log('Inscription successful:', data);
         localStorage.setItem('authToken',data.object.token);
         console.log('local storage : '+localStorage.getItem('authToken'));
-        //navigate('/HomePage', { state: { type: 4 } });
+        history.push('/login');
+       
       } else {
+
         console.log('Inscription failed:', data)
         console.error('Inscription failed:', response.status, response.statusText);
-        // Handle login failure
+     
       }
     } catch (error) {
+
       console.error('Error during Inscription:', error);
-      // Handle other errors
+
     }
 
   };
@@ -66,33 +73,32 @@ const ContainInscription: React.FC = () => {
                 <div className='contain-login' style={{}} >
                   <h1 className='h1' style={{}}>Inscription</h1>
                 </div>
-                <div className='contain2-login' style={{}}>
+                <div className='contain2_inscription' style={{}}>
                   <input className='input-style' type="text" style={{}} placeholder="name"
                   value={nom}
                   onChange={(e) => setNom(e.target.value)}
                   ></input>
                 </div>
-                <div className='contain2-login' style={{}}>
+                <div className='contain2_inscription' style={{}}>
                   <input className='input-style' type="text" style={{}} placeholder="Surname"
                   value={prenom}
                   onChange={(e) => setPrenom(e.target.value)}
                   ></input>
                 </div>
-                <div className='contain2-login' style={{}}>
+                <div className='contain2_inscription' style={{}}>
                   <input className='input-style' type="text" style={{}} placeholder="your mail"
                   value={login}
                   onChange={(e) => setLogin(e.target.value)}
                   ></input>
                 </div>
-                <div className='contain2-login' style={{}}>
+                <div className='contain2_inscription' style={{}}>
                   <input className='input-style' type="password" style={{}} placeholder="your password"
                   value={motDePasse}
                   onChange={(e) => setMotDePasse(e.target.value)}
                   ></input>
                 </div>
-                  <div className="contain2-login" style={{}}>
+                  <div className="contain2_inscription" style={{}}>
                         <input   className='btn' type="submit" style={{}} value="Valider" ></input>
-
                   </div>
           </form>
          </div>

@@ -3,6 +3,7 @@ import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/styles.css';
 import './assets/css/Login.css';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 // import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
@@ -23,7 +24,7 @@ const ContainLogin: React.FC = () => {
   const [method, setMethod] = useState<string>('POST');
   const [headers, setHeaders] = useState<{ [key: string]: string }>({"content-type" : "application/json"});
   //const [body, setBody] = useState<string>(' {"login" : ${login}  "motDePasse" : ${motDePasse}}');
-
+  const history = useHistory();
   const [login, setLogin] = useState<string>('');
   const [motDePasse, setMotDePasse] = useState<string>('');
 
@@ -48,7 +49,7 @@ const ContainLogin: React.FC = () => {
         console.log('Login successful:', data);
         localStorage.setItem('authToken',data.object.token);
         console.log('local storage : '+localStorage.getItem('authToken'));
-        //navigate('/HomePage', { state: { type: 4 } });
+        history.push('/accueil');
       } else {
         console.log('Login failed:', data)
         console.error('Login failed:', response.status, response.statusText);
@@ -69,31 +70,29 @@ const ContainLogin: React.FC = () => {
               <div className='contain-login' style={{}} >
                  <h1 className='h1' style={{}}>Login</h1>
               </div>
-              <div className='contain2-login' style={{}}>
+              <div className='contain2_login' style={{}}>
                 <input className='input-style' type="text" style={{}} placeholder="your mail"
                 name='login'
                 value={login}
                 //value="fa"
                 onChange={(e) => setLogin(e.target.value)}
                 >
-
                 </input>
-
               </div>
-              <div className='contain2-login' style={{}}>
-            <input className='input-style' type="text" style={{}} placeholder="your password"
+              <div className='contain2_login' style={{}}>
+            <input className='input-style' type="password" style={{}} placeholder="your password"
                   name='password'
                   value={motDePasse}
                  // value="fa"
                   onChange={(e) => setMotDePasse(e.target.value)}
                  ></input>
           </div>
-          <div className="contain2-login" style={{}}>
+          <div className="contain2_login" style={{}}>
           <a href="/inscription">Sign up</a></div>
        
                 <div className="contain2-login" style={{}}>
 
-                      <input   className='btn' type="submit" style={{}} value="Sign in"></input>
+                      <input className='btn' type="submit" style={{}} value="Sign in"></input>
                       
                 </div>
                  

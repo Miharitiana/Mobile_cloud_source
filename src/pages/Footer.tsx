@@ -10,14 +10,12 @@ const Footer: React.FC = () => {
   </IonFooter>
   );
 };
-
-
 const ContainFooter: React.FC = () => {
   return (
 
       <div data-aos="zoom-in" className='footer-dark  contain-footer' style={{}}>
       <footer>
-          <div className='container"' style={{height: '193px'}}>
+          <div className='container"' style={{height: '100%'}}>
               <div className='row'>
                   <div className='col-sm-4 col-md-3 item detail-footer' style={{}}>
                       <h3>Servitech </h3>

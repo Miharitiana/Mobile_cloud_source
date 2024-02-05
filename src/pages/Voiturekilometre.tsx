@@ -5,7 +5,6 @@ import Menu from './Menu';
 
 const VoitureMarqueSuite: React.FC = () => {
 
-
   return (
 
     <IonPage>
