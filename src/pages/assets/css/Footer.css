@@ -1,19 +1,18 @@
 .contain-footer{
     background-color: rgb(6 6 6 / 92%);
-    height: 365px;
+    height: 330px;
     /* margin-top: 25%; */
 
-    width: 100%;
-    margin-top: 23%;
+    margin-top: 21%;
 }
 
 .detail-footer{
     font-family:Lato, sans-serif;
 }
 
-@media screen and (min-width:120px ) and (max-width:500px) {
+@media screen and (min-width:120px ) and (max-width:800px) {
     .contain-footer{ 
-        margin-top: 40%;
-        HEIGHT: 623px;
-    }
+        margin-top: 90%;
+        HEIGHT: 495px;
+    }   
 }

@@ -28,23 +28,10 @@ function Menu() {
             </IonItem>
           <IonItem>
             <IonMenuToggle>
-              <a href="/voituremarque">Voiture marque</a>
+              <a href="/voituremarque">Ajouter Annonce</a>
             </IonMenuToggle>
             </IonItem>
-            
-            <IonItem>
-            <IonMenuToggle>
-              <a href="/modelevoiture"> Modèle voiture</a>
-  
-            </IonMenuToggle>
-            </IonItem>
-
-            <IonItem>
-            <IonMenuToggle>
-            <a href="/imagevoiture">  Image voiture </a>
-            </IonMenuToggle>
-            </IonItem>
-
+           
             <IonItem>
             <IonMenuToggle>
               <a href="/listeannonce"> Liste des annonces</a>

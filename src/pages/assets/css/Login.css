@@ -21,7 +21,7 @@
     border-style: 'outset'; 
 } */
 .btn{
-    margin-top: 0px;
+    margin-top: -50px;
     background: linear-gradient(118deg, black 0%, var(--bs-blue) 0%, var(--bs-info) 0%, rgb(13,152,247) 0%, var(--bs-teal) 100%, var(--bs-info) 100%), var(--bs-blue);
     width: 200.5px;
     height: 43px;
@@ -48,11 +48,10 @@
     margin-left: 42px;
     margin-top: 0px;
 }
-.contain2-login{
-    margin-top: 80px;
+.contain2_login {
+    margin-top: 50px;
     margin-left: 100px;
 }
-
 .input-style{
     width: 260px;border-top-width: 0px;
     border-right-width: 0px;border-right-color: var(--bs-teal);

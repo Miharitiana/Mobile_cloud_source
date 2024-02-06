@@ -61,7 +61,7 @@ const ContainModele: React.FC = () => {
             <div className='col'><label className='col-form-label'>Prix : {item.prix}</label>  </div>
             <div>
             <div className='col'><button className='btn' type="button">Vendu</button></div>
-            <div className='col'><button className='btn' type="button" >Etat</button></div>
+            <div className='col'><a className='btn' href='/detailannonce' >Etat</a></div>
            
         </div>
         </div>
