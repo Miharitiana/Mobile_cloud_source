@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "293231089912",
+    "project_id": "cloud-voitures",
+    "storage_bucket": "cloud-voitures.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293231089912:android:028bef9e04002ae08b830d",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFrc7BV7f6D9SLwA0w478tbb11n6IR1b4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

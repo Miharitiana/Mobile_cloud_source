@@ -5,6 +5,10 @@ import './assets/bootstrap/css/bootstrap.min.css';
 import './assets/css/Inscription.css';
 import { useHistory } from 'react-router-dom';
 
+import { PushNotificationSchema, PushNotifications, Token, ActionPerformed } from '@capacitor/push-notifications';
+import { Toast } from "@capacitor/toast";
+
+
 const Inscription: React.FC = () => {
   return (
     <IonPage>
@@ -17,6 +21,71 @@ const Inscription: React.FC = () => {
 };
 
 const ContainInscription: React.FC = () => {
+    const nullEntry: any[] = []
+    const [notifications, setnotifications] = useState(nullEntry);
+
+
+      const demande_notif = ()=>{
+      console.log("-------> Demande de permission de notifier ");
+        PushNotifications.checkPermissions().then((res) => {
+            if (res.receive !== 'granted') {
+              PushNotifications.requestPermissions().then((res) => {
+                if (res.receive === 'denied') {
+                  showToast('Push Notification permission denied');
+                }
+                else {
+                  showToast('Push Notification permission granted');
+                  register();
+                }
+              });
+            }
+            else {
+              register();
+            }
+          });
+        }
+
+    const register = () => {
+
+    // Register with Apple / Google to receive push via APNS/FCM
+        PushNotifications.register();
+
+        // On success, we should be able to receive notifications
+        PushNotifications.addListener('registration',
+            (token: Token) => {
+                showToast('Push registration success');
+                //setnotifications(notifications => [...notifications, { id: -1, title: 'Token', body: JSON.stringify(token), type: 'action' }])
+                console.log(token);
+            }
+        );
+          
+        // Some issue with our setup and push will not work
+        PushNotifications.addListener('registrationError',
+            (error: any) => {
+                alert('Error on registration: ' + JSON.stringify(error));
+            }
+        );
+          
+        // Show us the notification payload if the app is open on our device
+        PushNotifications.addListener('pushNotificationReceived',
+            (notification: PushNotificationSchema) => {
+                setnotifications(notifications => [...notifications, { id: notification.id, title: notification.title, body: notification.body, type: 'foreground' }])
+            }
+        );
+          
+        // Method called when tapping on a notification
+        PushNotifications.addListener('pushNotificationActionPerformed',
+            (notification: ActionPerformed) => {
+                setnotifications(notifications => [...notifications, { id: notification.notification.data.id, title: notification.notification.data.title, body: notification.notification.data.body, type: 'action' }])
+            }
+        );
+    }
+
+    const showToast = async (msg: string) => {
+      await Toast.show({
+          text: msg
+      })
+  }
 
   const apiUrl = 'https://cloud-back-voiture-production.up.railway.app/login/register'; // Remplace TON_URL_API par ton URL réelle
   const [method, setMethod] = useState<string>('POST');
@@ -65,7 +134,7 @@ const ContainInscription: React.FC = () => {
     }
 
   };
-
+    demande_notif()
     return (
       <body className='bodyy'>
          <div className='contain_inscription' style={{}}>
