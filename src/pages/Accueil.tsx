@@ -17,15 +17,12 @@ const Accueil: React.FC = () => {
   );
 };
 
-
 const ContainAccueil: React.FC = () => {
   return (
     <body className='body_accueil'>
  
-      </body>
- 
+    </body>
   );
 };
-
 
 export default Accueil;
