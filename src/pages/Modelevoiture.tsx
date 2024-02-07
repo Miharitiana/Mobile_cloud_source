@@ -16,8 +16,6 @@ const Modelevoiture: React.FC = () => {
       <Menu></Menu> 
       <ContainModele></ContainModele>
       </IonContent>
-      
-
     </IonPage>
   );
 };

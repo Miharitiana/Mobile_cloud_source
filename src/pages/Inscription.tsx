@@ -134,7 +134,7 @@ const ContainInscription: React.FC = () => {
     }
 
   };
-    demande_notif()
+    //demande_notif()
     return (
       <body className='bodyy'>
          <div className='contain_inscription' style={{}}>
