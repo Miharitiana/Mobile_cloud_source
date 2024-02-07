@@ -58,7 +58,7 @@ const ImageVoiture: React.FC = () => {
       {image.map((item) => (
           <div  key={item.id} className= 'container2' style= {{ marginLeft: '15px'}}>
               <div  className='contain-img' style={{}}>
-                <img src={item.src_img} className='img' style={{}}></img>
+                <img src="data:image;base64"  className='img' style={{}}></img>
                   <p className='detail-img' style={{}}> </p>
                   <a className='a-style' href="/accueil" >  Voiture </a> 
               </div>
@@ -70,7 +70,7 @@ const ImageVoiture: React.FC = () => {
       {image2.map((item) => (
           <div  key={item.id} className= 'container2' style= {{ marginLeft: '15px'}}>
               <div  className='contain-img' style={{}}>
-                <img src={item.src_img} className='img' style={{}}></img>
+                <img src="data:image;base64" className='img' style={{}}></img>
                   <p className='detail-img' style={{}}> </p>
                   <a className='a-style' href="/accueil" >  Voiture </a> 
               </div>
