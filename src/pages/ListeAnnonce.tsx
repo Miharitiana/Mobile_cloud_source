@@ -16,7 +16,7 @@ export interface Annonce {
 }
 const annonce: Annonce[] = [
 
-  {path_img: 'src/assets/img_voiture/Img-.jpg', nom: 'voiture ', datee : new Date('12-01-2023') , marque: 'marque1 ' , modele: 'modele1'  , prix : 10000 ,  id: 1},
+  {path_img: './src/assets/img_voiture/Img-.jpg', nom: 'voiture ', datee : new Date('12-01-2023') , marque: 'marque1 ' , modele: 'modele1'  , prix : 10000 ,  id: 1},
   {path_img: 'src/assets/img_voiture/Img-.jpg', nom: 'voitur2', datee : new Date('12-01-2023') , marque: 'marque2 ' , modele: 'modele2'  , prix : 10000 , id: 2},
   {path_img: 'src/assets/img_voiture/Img-.jpg', nom: 'voiture3 ', datee : new Date('12-01-2023') , marque: 'marque3' , modele: 'modele3'  , prix : 10000 , id: 3}
  

@@ -1,5 +1,5 @@
 import { IonCol, IonContent, IonGrid, IonHeader, IonPage, IonRow, IonTabBar, IonTabButton, IonTitle, IonToolbar } from '@ionic/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './assets/bootstrap/css/bootstrap.min.css';
 // import './assets/css/styles.css';
 import './assets/css/Inscription.css';
@@ -23,9 +23,10 @@ const Inscription: React.FC = () => {
 const ContainInscription: React.FC = () => {
     const nullEntry: any[] = []
     const [notifications, setnotifications] = useState(nullEntry);
+    const[notif_token, setNotif_token] = useState('');
+    
 
-
-      const demande_notif = ()=>{
+   useEffect( ()=>{
       console.log("-------> Demande de permission de notifier ");
         PushNotifications.checkPermissions().then((res) => {
             if (res.receive !== 'granted') {
@@ -43,7 +44,7 @@ const ContainInscription: React.FC = () => {
               register();
             }
           });
-        }
+        }, []);
 
     const register = () => {
 
@@ -54,8 +55,11 @@ const ContainInscription: React.FC = () => {
         PushNotifications.addListener('registration',
             (token: Token) => {
                 showToast('Push registration success');
-                //setnotifications(notifications => [...notifications, { id: -1, title: 'Token', body: JSON.stringify(token), type: 'action' }])
-                console.log(token);
+                setnotifications(notifications => [...notifications, { id: -1, title: 'Token', body: JSON.stringify(token), type: 'action' }])
+                //showToast(token.value);
+                setNotif_token(token.value);
+                //console.log("Votre token");
+                //console.log(token.value);
             }
         );
           
@@ -66,19 +70,6 @@ const ContainInscription: React.FC = () => {
             }
         );
           
-        // Show us the notification payload if the app is open on our device
-        PushNotifications.addListener('pushNotificationReceived',
-            (notification: PushNotificationSchema) => {
-                setnotifications(notifications => [...notifications, { id: notification.id, title: notification.title, body: notification.body, type: 'foreground' }])
-            }
-        );
-          
-        // Method called when tapping on a notification
-        PushNotifications.addListener('pushNotificationActionPerformed',
-            (notification: ActionPerformed) => {
-                setnotifications(notifications => [...notifications, { id: notification.notification.data.id, title: notification.notification.data.title, body: notification.notification.data.body, type: 'action' }])
-            }
-        );
     }
 
     const showToast = async (msg: string) => {
@@ -87,7 +78,7 @@ const ContainInscription: React.FC = () => {
       })
   }
 
-  const apiUrl = 'https://cloud-back-voiture-production.up.railway.app/login/register'; // Remplace TON_URL_API par ton URL réelle
+  const apiUrl = 'https://cloud-back-voiture-production-3dbf.up.railway.app/login/register'; // Remplace TON_URL_API par ton URL réelle
   const [method, setMethod] = useState<string>('POST');
   const [headers, setHeaders] = useState<{ [key: string]: string }>({"content-type" : "application/json"});
   //const [body, setBody] = useState<string>(' {"login" : ${login}  "motDePasse" : ${motDePasse}}');
@@ -98,7 +89,6 @@ const ContainInscription: React.FC = () => {
   const [login, setLogin] = useState<string>('');
   const [motDePasse, setMotDePasse] = useState<string>('');
 
-
   const handleRequest = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -108,17 +98,18 @@ const ContainInscription: React.FC = () => {
         headers: {
           'content-Type': 'application/json',
         },
-        body: JSON.stringify({nom , prenom, login, motDePasse }),
+        body: JSON.stringify({nom , prenom, login, motDePasse, notif_token}),
         
       });
 
       const data = await response.json();
-
-      if (data.information == 200) {
+      showToast(data);
+      if (data.information == "200") {
 
         console.log('Inscription successful:', data);
         localStorage.setItem('authToken',data.object.token);
         console.log('local storage : '+localStorage.getItem('authToken'));
+        showToast('Signed up successfully !');
         history.push('/login');
        
       } else {
@@ -134,7 +125,8 @@ const ContainInscription: React.FC = () => {
     }
 
   };
-    demande_notif()
+
+  
     return (
       <body className='bodyy'>
          <div className='contain_inscription' style={{}}>
