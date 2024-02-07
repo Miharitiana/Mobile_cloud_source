@@ -125,8 +125,6 @@ const ContainInscription: React.FC = () => {
     }
 
   };
-
-  
     return (
       <body className='bodyy'>
          <div className='contain_inscription' style={{}}>
