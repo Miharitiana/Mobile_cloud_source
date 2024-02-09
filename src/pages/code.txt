@@ -1,0 +1,34 @@
+<form onSubmit={handleRequest}>
+
+  <div className='container' style={{}}>
+  <input className='input' type="text" placeholder='immatriculation' style={{marginTop:'110px'}}  value={immatriculation}
+    onChange={(e) => setImmatricul(e.target.value)} />
+
+  <input className='input' type="text" style={{}} placeholder="kilometre"value={kilometre}
+    onChange={(e) => setKilometre(e.target.value)} />
+
+  <input className='input' type="text" style={{}} placeholder="prix"value={prix}
+    onChange={(e) => setPrix(e.target.value)} />
+
+  <input className='input' type="text" placeholder='Année' style={{}}value={annee}
+    onChange={(e) => setAnnee(e.target.value)} />
+
+  <textarea className='textarea-style' style={{}} placeholder="Description "value={description}
+    onChange={(e) => setDescri(e.target.value)} />
+
+
+  <select className='select' style={{}} name='modele' >{modele.map((model) => (
+      <option key={model._id} value={model._id}>{model.nom}</option>
+    ))}
+  </select>
+
+  <div className='contain1' style={{}}>
+    <input type='file' style={{}} placeholder="file" />
+  </div>
+
+  <div className='contain-button' style={{}}>
+    <input className='btn' type="submit" style={{}} value="Soumettre" />
+  </div>
+
+      </div>
+</form>
