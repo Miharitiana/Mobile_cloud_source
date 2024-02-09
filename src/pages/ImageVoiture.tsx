@@ -41,8 +41,6 @@ const ImageVoiture: React.FC = () => {
       <Menu/>
       <ContainImage></ContainImage>
       </IonContent>
-    
-
     </IonPage>
   );
 };

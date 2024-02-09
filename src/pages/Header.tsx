@@ -21,11 +21,11 @@ const Header: React.FC = () => {
             <IonMenuButton ></IonMenuButton>
           </IonButtons>
 
-                <ul className="navbar-nav ml-auto">
+                {/* <ul className="navbar-nav ml-auto">
                     <li className="nav-item"><a className="nav-link active" href="/login">Item1</a></li>
                     <li className="nav-item"><a className="nav-link active" href="#">Item</a></li>
                     <li className="nav-item"><a className="nav-link active" href="#">Item</a></li>
-                </ul>
+                </ul> */}
             </div>
         </div>
     </nav>

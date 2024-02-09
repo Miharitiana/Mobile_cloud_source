@@ -93,8 +93,7 @@ const App: React.FC = () => (
       <ImageVoiture />
       </Route>
 
-
-        <Route exact path="/">
+      <Route exact path="/">
           <Redirect to="/login" /> 
         </Route>
       </IonRouterOutlet>
