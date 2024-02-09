@@ -83,7 +83,7 @@ const App: React.FC = () => (
         <Route exact path="/voituremarque">
           <VoitureMarque />
         </Route>
-        <Route exact path="/voiturekilometre">
+        <Route exact path="/voiturekilometre/:idMarque">
           <Voiturekilometre />
         </Route>
         <Route exact path="/modelevoiture">
@@ -93,8 +93,7 @@ const App: React.FC = () => (
       <ImageVoiture />
       </Route>
 
-
-        <Route exact path="/">
+      <Route exact path="/">
           <Redirect to="/login" /> 
         </Route>
       </IonRouterOutlet>

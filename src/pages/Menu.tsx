@@ -1,13 +1,9 @@
 
-import {IonContent, IonHeader, IonMenu,  IonPage, IonTitle, IonToolbar, IonList, IonItem, IonRouterLink, IonButtons, IonMenuButton, IonMenuToggle } from '@ionic/react';
-import { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router';
+import {IonContent, IonHeader, IonMenu, IonTitle, IonToolbar, IonList, IonItem, IonRouterLink, IonButtons, IonMenuButton, IonMenuToggle } from '@ionic/react';
+
 import Header from './Header';
-import menuService from './ServiceMenu';
 
 function Menu() {
-
-  
 
   return (
     <>
