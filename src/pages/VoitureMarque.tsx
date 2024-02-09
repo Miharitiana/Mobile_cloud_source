@@ -6,6 +6,7 @@ import './assets/css/voitureMarque.css';
 import Menu from './Menu';
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import { Toast } from '@capacitor/toast';
 
 const VoitureMarque: React.FC = () => {
 
@@ -39,9 +40,16 @@ const ContainVoiture: React.FC = () => {
 
 
 
+  const showToast = async (msg: string) => {
+    await Toast.show({
+        text: msg
+    })
+}
  useEffect(() => {
   const fetchMarques = async () => {
+
     try {
+      showToast("Chargement, veuillez patienter...");
       const response = await fetch(apiUrl);
       const data = await response.json();
       console.log("data = "  , data);
@@ -65,15 +73,16 @@ const ContainVoiture: React.FC = () => {
 
 const handleSuivantClick = () => {
   // Vérifiez si une marque est sélectionnée
-  if (selectedMarqueId) {
+  if (selectedMarqueId !== null) {
     // Redirigez avec l'ID de la marque sélectionnée
-    history.push(`/voiturekilometre/${selectedMarqueId}`);
+    
+    history.push("/Voiturekilometre");
   } else {
     console.error('Veuillez sélectionner une marque avant de continuer.');
   }
 };
 const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-  setSelectedMarqueId(e.target.value);
+    localStorage.setItem("selected_marque", e.target.value);
 };
 
 // const handleSuivantClick = () => {
@@ -88,7 +97,9 @@ const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
             <h1 className='heading' style={{}}>Marque</h1>
       </div>
         <div className='contain-select1'>
-  <select className='select' onChange={handleSelectChange} >
+  <select className='select' onInput={handleSelectChange} >
+      <option >Choisir la marque</option>
+
       {marques.map((marque) => (
             <option key={marque._id} value={marque._id}>{marque.nom}</option>
       ))}

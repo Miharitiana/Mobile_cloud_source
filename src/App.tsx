@@ -83,7 +83,7 @@ const App: React.FC = () => (
         <Route exact path="/voituremarque">
           <VoitureMarque />
         </Route>
-        <Route exact path="/voiturekilometre/:idMarque">
+        <Route exact path="/voiturekilometre">
           <Voiturekilometre />
         </Route>
         <Route exact path="/modelevoiture">

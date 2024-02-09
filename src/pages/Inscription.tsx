@@ -102,6 +102,7 @@ const ContainInscription: React.FC = () => {
         
       });
 
+      showToast("Inscription en cours...");
       const data = await response.json();
       showToast(data);
       if (data.information == "200") {

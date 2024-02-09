@@ -4,6 +4,7 @@ import './assets/css/styles.css';
 import './assets/css/Login.css';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Toast } from "@capacitor/toast";
 // import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 
@@ -28,6 +29,11 @@ const ContainLogin: React.FC = () => {
   const [login, setLogin] = useState<string>('');
   const [motDePasse, setMotDePasse] = useState<string>('');
 
+  const showToast = async (msg: string) => {
+    await Toast.show({
+        text: msg
+    })
+}
 
   const handleRequest = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,8 +47,9 @@ const ContainLogin: React.FC = () => {
         body: JSON.stringify({ login, motDePasse }),
       });
 
+      showToast("Connexion en cours...");
       const data = await response.json();
-
+      
       if (response.ok) {
         console.log('Login successful:', data);
         localStorage.setItem('authToken',data.object.token);
